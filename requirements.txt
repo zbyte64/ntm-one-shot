@@ -1,0 +1,4 @@
+theano
+lasagne
+matplotlib
+pillow

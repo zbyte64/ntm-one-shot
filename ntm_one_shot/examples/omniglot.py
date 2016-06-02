@@ -6,12 +6,12 @@ import random
 
 import lasagne.nonlinearities
 import lasagne.updates
-from utils.init import weight_and_bias_init, shared_glorot_uniform, shared_one_hot
-from utils.similarities import cosine_similarity
-from utils.theano_utils import shared_floatX
-from utils.images import get_shuffled_images, time_offset_input
-from utils.generators import OmniglotGenerator
-from utils.metrics import accuracy_instance
+from ..utils.init import weight_and_bias_init, shared_glorot_uniform, shared_one_hot
+from ..utils.similarities import cosine_similarity
+from ..utils.theano_utils import shared_floatX
+from ..utils.images import get_shuffled_images, time_offset_input
+from ..utils.generators import OmniglotGenerator
+from ..utils.metrics import accuracy_instance
 import time
 
 nb_class = 5
@@ -127,9 +127,9 @@ try:
         scores.append(score)
         accs += acc
         if i > 0 and not (i % 100):
-            print 'Episode %05d: %.6f' % (i, np.mean(score))
-            print accs / 100.
+            print('Episode %05d: %.6f' % (i, np.mean(score)))
+            print(accs / 100.)
             scores, accs = [], np.zeros(generator.nb_samples_per_class)
 except KeyboardInterrupt:
-    print time.time() - t0
+    print(time.time() - t0)
     pass
